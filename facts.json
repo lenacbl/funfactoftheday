@@ -1,149 +1,29 @@
-[
-  {
-    "date": "2026-05-20",
-    "title": "Les pieuvres ont trois cœurs",
-    "fact": "Les pieuvres possèdent trois cœurs : deux pour les branchies et un pour le reste du corps.",
-    "bonus": "Quand elles nagent, leur cœur principal ralentit.",
-    "question": "Leur sang est-il rouge ou bleu ?",
-    "source": "https://fr.wikipedia.org/wiki/Pieuvre"
-  },
-  {
-    "date": "2026-05-21",
-    "title": "Les bananes sont (légèrement) radioactives",
-    "fact": "Les bananes contiennent du potassium, dont une petite partie est radioactive.",
-    "bonus": "Il faudrait en manger des millions pour ressentir un effet.",
-    "question": "Tu tenterais le défi ? 😄",
-    "source": "https://fr.wikipedia.org/wiki/Dose_banane_%C3%A9quivalente"
-  },
-  {
-    "date": "2026-05-22",
-    "title": "Les requins sont plus vieux que les arbres",
-    "fact": "Les requins existent depuis plus de 400 millions d’années.",
-    "bonus": "Les premiers arbres datent d’environ 350 millions d’années.",
-    "question": "Qui aurait parié là-dessus ?",
-    "source": "https://www.nhm.ac.uk/discover/sharks-are-older-than-trees.html"
-  },
-  {
-    "date": "2026-05-23",
-    "title": "Le miel est éternel",
-    "fact": "Le miel peut se conserver pendant des milliers d’années.",
-    "bonus": "Du miel comestible a été retrouvé dans des tombes égyptiennes.",
-    "question": "Tu goûterais un miel vieux de 2000 ans ?",
-    "source": "https://en.wikipedia.org/wiki/Honey"
-  },
-  {
-    "date": "2026-05-24",
-    "title": "Les dauphins ont un « prénom »",
-    "fact": "Les dauphins utilisent des sifflements uniques pour s’identifier.",
-    "bonus": "Ils réagissent quand on les appelle avec ce son.",
-    "question": "Tu aimerais avoir un prénom sifflé ?",
-    "source": "https://www.nationalgeographic.com/animals/article/dolphins-names"
-  },
-  {
-    "date": "2026-05-25",
-    "title": "L’espace a une odeur",
-    "fact": "Les astronautes décrivent une odeur de métal chaud ou de viande grillée.",
-    "bonus": "Elle vient des particules accrochées aux combinaisons.",
-    "question": "Plutôt barbecue… spatial ?",
-    "source": "https://www.nasa.gov"
-  },
-  {
-    "date": "2026-05-26",
-    "title": "Ton cerveau consomme beaucoup d’énergie",
-    "fact": "Il utilise environ 20% de ton énergie totale.",
-    "bonus": "Même au repos… il travaille dur.",
-    "question": "Fatigué juste en réfléchissant ? 😄",
-    "source": "https://fr.wikipedia.org/wiki/Cerveau"
-  },
-  {
-    "date": "2026-05-27",
-    "title": "Les flamants roses naissent gris",
-    "fact": "Ils deviennent roses grâce aux pigments de leur alimentation.",
-    "bonus": "Sans crevettes → pas de rose.",
-    "question": "Donc… flamant gris = régime ? 😄",
-    "source": "https://www.nationalgeographic.com"
-  },
-  {
-    "date": "2026-05-28",
-    "title": "Un éclair est plus chaud que le soleil",
-    "fact": "Un éclair peut atteindre 30 000°C.",
-    "bonus": "La surface du Soleil est à ~5500°C.",
-    "question": "Team orage ou team soleil ?",
-    "source": "https://science.nasa.gov"
-  },
-  {
-    "date": "2026-05-29",
-    "title": "Les fourmis ne dorment pas vraiment",
-    "fact": "Elles font des micro-siestes de quelques secondes.",
-    "bonus": "Ce qui leur permet d’être actives quasi en continu.",
-    "question": "Leur secret de productivité ? 👀",
-    "source": "https://www.britannica.com"
-  },
+fetch('facts.json')
+  .then(res => res.json())
+  .then(data => {
+    const today = new Date().toISOString().split('T')[0];
 
-  {
-    "date": "2026-05-30",
-    "title": "Les koalas ont des empreintes proches des humains",
-    "fact": "Leurs empreintes digitales sont presque identiques aux nôtres.",
-    "bonus": "Même des microscopes ont du mal à faire la différence.",
-    "question": "Koala = suspect parfait ? 😄",
-    "source": "https://www.britannica.com"
-  },
-  {
-    "date": "2026-05-31",
-    "title": "Vénus tourne à l’envers",
-    "fact": "Elle tourne dans le sens opposé des autres planètes.",
-    "bonus": "Le Soleil se lève à l’ouest sur Vénus.",
-    "question": "Déroutant, non ?",
-    "source": "https://solarsystem.nasa.gov"
-  },
-  {
-    "date": "2026-06-01",
-    "title": "Les arbres communiquent",
-    "fact": "Ils utilisent un réseau de racines et de champignons.",
-    "bonus": "On l’appelle parfois le “Wood Wide Web”.",
-    "question": "Les arbres bavards, tu valides ?",
-    "source": "https://www.nationalgeographic.com"
-  },
-  {
-    "date": "2026-06-02",
-    "title": "Une journée sur Vénus est plus longue qu’une année",
-    "fact": "Vénus met plus de temps à tourner sur elle-même qu’à faire le tour du Soleil.",
-    "bonus": "Une journée = 243 jours terrestres.",
-    "question": "Fatigue extrême garantie 😄",
-    "source": "https://solarsystem.nasa.gov"
-  },
-  {
-    "date": "2026-06-03",
-    "title": "Les chats reconnaissent leur nom",
-    "fact": "Mais ils choisissent souvent de ne pas répondre.",
-    "bonus": "Classe féline.",
-    "question": "Ton chat ferait quoi ?",
-    "source": "https://www.nature.com"
-  },
+    // Fun fact du jour si présent, sinon le dernier (fallback)
+    const fact = data.find(f => f.date === today) || data[data.length - 1];
 
-  {
-    "date": "2026-06-04",
-    "title": "Les humains brillent dans le noir",
-    "fact": "Le corps humain émet une très faible lumière.",
-    "bonus": "Invisible à l’œil nu.",
-    "question": "Mode lampe activé ? 😄",
-    "source": "https://www.sciencedaily.com"
-  },
-  {
-    "date": "2026-06-05",
-    "title": "Il pleut du diamant sur certaines planètes",
-    "fact": "Sur Neptune et Uranus, la pression crée des diamants.",
-    "bonus": "Une vraie pluie… précieuse !",
-    "question": "On déménage ? 😄",
-    "source": "https://www.nasa.gov"
-  },
-  {
-    "date": "2026-06-06",
-    "title": "Les poulpes peuvent s’échapper presque partout",
-    "fact": "Ils n’ont pas de squelette rigide.",
-    "bonus": "Ils peuvent passer dans des trous minuscules.",
-    "question": "Vrai expert de l’évasion ?",
-    "source": "https://www.nationalgeographic.com"
-  }
+    document.getElementById('dateBadge').textContent = fact.date || today;
+    document.getElementById('title').textContent = fact.title || "Fun fact du jour";
+    document.getElementById('factText').textContent = fact.fact || "";
+    document.getElementById('bonusText').textContent = fact.bonus || "Bonus à venir ✨";
+    document.getElementById('questionText').textContent = fact.question || "Question surprise demain 😄";
 
-]
+    // Source cliquable si disponible
+    const sourceBtn = document.getElementById('sourceBtn');
+    if (fact.source) {
+      sourceBtn.href = fact.source;
+      sourceBtn.style.display = "inline-flex";
+    }
+
+    // Footer
+    const n = data.length;
+    document.getElementById('footerNote').textContent = `📌 ${n} fun fact${n>1?'s':''} dans l’historique`;
+  })
+  .catch(() => {
+    document.getElementById('title').textContent = "Oups…";
+    document.getElementById('factText').textContent = "Impossible de charger le fichier facts.json.";
+  });
