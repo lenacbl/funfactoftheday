@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Historique des fun facts</title>
+  <title>Historique</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +12,7 @@
     <div class="topbar">
       <div class="brand">
         <h1>📚 Historique</h1>
-        <p>Tous les fun facts déjà envoyés.</p>
+        <p>Tous les fun facts déjà ajoutés.</p>
       </div>
       <a class="button" href="index.html">⬅️ Retour</a>
     </div>
@@ -39,10 +39,7 @@
           div.innerHTML = `
             <h3>${f.date} — ${f.title}</h3>
             <p>${f.fact}</p>
-          `;
-          list.appendChild(div);
-        });
-        document.getElementById('count').textContent = `📌 ${data.length} fun fact(s)`;
+            ${f.source ? `<p style="margin-top:8px;"><a class="source" href="${f.source}" target="_blank" rel="noopener noreferrer.textContent = `📌 ${data.length} fun fact(s)`;
       })
       .catch(() => {
         document.getElementById('list').textContent = "Impossible de charger l’historique.";
