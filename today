@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fun Fact du Jour</title>
+</head>
+<body>
+  <h1>🧠 Fun fact du jour</h1>
+  <div id="fact"></div>
+
+  <a href="archive.html">Voir les précédents</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
