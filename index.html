@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Fun Fact du Jour</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>🧠 Fun fact du jour</h1>
-  <div id="fact"></div>
 
-  <a href="archive.html">Voir les précédents</a>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <h1>☀️ Fun fact du matin</h1>
+        <p>Une minute de curiosité, zéro prise de tête.</p>
+      </div>
+      <a class="button" href="archive.html">📚 Historique</a>
+    </div>
+
+    <div class="card fade-in">
+      <div class="badges">
+        <span class="badge">🗓️ <strong id="dateBadge">—</strong></span>
+        <span class="badge">🎲 Full aléatoire</span>
+        <span class="badge">🇫🇷 FR</span>
+      </div>
+
+      <h2 class="title" id="title">Chargement…</h2>
+      <p class="fact" id="factText"></p>
+
+      <div class="callout">
+        <div class="label">✨ Bonus</div>
+        <p id="bonusText"></p>
+      </div>
+
+      <div class="callout">
+        <div class="label">❓ Petite question</div>
+        <p id="questionText"></p>
+      </div>
+
+      <div class="actions">
+        <a class="button primary" href="archive.html">Voir les précédents</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>🔒 Lien privé (à partager uniquement avec ton copain)</span>
+      <span id="footerNote"></span>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
