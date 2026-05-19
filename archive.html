@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Historique</title>
+</head>
+<body>
+  <h1>📚 Historique des fun facts</h1>
+  <div id="list"></div>
+
+  <script>
+    fetch('facts.json')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('list');
+        data.slice().reverse().forEach(f => {
+          list.innerHTML += `
+            <div>
+              <h3>${f.date} - ${f.title}</h3>
+              <p>${f.fact}</p>
+            </div>
+          `;
+        });
+      });
+  </script>
+</body>
+</html>
